@@ -19,17 +19,4 @@ class Ground
         //adding the ground to the world
         World.add(world,this.body);
     }
-
-    //display function for the ground
-    display()
-    {
-        //creating the shortcut for the body's position
-        var pos = this.body.position;
-
-        //making rectMode = Center
-        rectMode(CENTER);
-
-        //making the rectangular body
-        rect(pos.x,pos.y,this.width,this.height);
-    }
 }

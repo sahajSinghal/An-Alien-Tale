@@ -10,9 +10,9 @@ class BossClass
         }
 
         //creating the character body
-        this.body = Bodies.rectangle(x,y,displayWidth/20,displayWidth/20,options);
-        this.width = displayWidth/25;
-        this.height = displayWidth/25;
+        this.body = Bodies.rectangle(x,y,width,height,options);
+        this.width = width;
+        this.height = height;
 
         //adding it to the world
         World.add(world,this.body)

@@ -4,6 +4,9 @@ class Platform
     //making constructor which accepts x, y, width and height
     constructor(x,y,width,height)
     {
+        this.regularImage = loadImage("../Images/platform.png");
+        this.specialImage = loadImage("../Images/platform_special.png");
+
         var options = 
         {
             //making the friction 1 and making the platform a static body
@@ -18,18 +21,5 @@ class Platform
 
         //adding the platform to the world
         World.add(world,this.body);
-    }
-
-    //display function for the platforms
-    display()
-    {
-        //creating the shortcut for the body's position
-        var pos = this.body.position;
-
-        //making rectMode = Center
-        rectMode(CENTER);
-
-        //making the rectangular body
-        rect(pos.x,pos.y,this.width,this.height);
     }
 }

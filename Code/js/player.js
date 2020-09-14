@@ -20,26 +20,4 @@ class Player
         //adding the player to the world
         World.add(world,this.body);
     }
-
-    //display function for the player
-    display()
-    {
-        //making shortcuts for angle and position
-        var angle = this.body.angle;
-        var pos = this.body.position;
-
-        push();
-        //translating the x and y position of the player
-        translate(pos.x,pos.y);
-
-        //rotating it equal to it's angle
-        rotate(angle);
-
-        //making rectMode = Center 
-        rectMode(CENTER);
-
-        //making the rectangular body
-        rect(0,0,this.width,this.height);
-        pop();   
-    }
 };
