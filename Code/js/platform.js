@@ -4,9 +4,6 @@ class Platform
     //making constructor which accepts x, y, width and height
     constructor(x,y,width,height)
     {
-        this.regularImage = loadImage("../Images/platform.png");
-        this.specialImage = loadImage("../Images/platform_special.png");
-
         var options = 
         {
             //making the friction 1 and making the platform a static body

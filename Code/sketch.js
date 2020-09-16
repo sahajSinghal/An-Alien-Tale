@@ -21,15 +21,14 @@ var forestOfFog;
 //creating a variable for the buttons on the start screen
 var buttons;
 
-var regularPlatform;
-var regularPlatSprite;
-
 var player;
 var playerSprite;
 
 var ground, groundSprite;
 
 var init = false;
+
+var storyTime;
 
 function setup(){
     //creating a canvas whose size is equal to the displayWidth and DisplayHeight
@@ -45,14 +44,18 @@ function setup(){
 
     buttons = new startScreenButtons();
 
-    regularPlatform = new Platform(displayWidth/2,displayHeight/2,100,10);
-    regularPlatSprite = createSprite(regularPlatform.body.position.x,regularPlatform.body.position.y,100,10);
-    regularPlatSprite.visible = false;
+    // regularPlatform = new Platform(displayWidth/2,displayHeight/2,100,10);
+    // regularPlatSprite = createSprite(regularPlatform.body.position.x,regularPlatform.body.position.y,100,10);
+    // regularPlatSprite.visible = false;
 
     ground = new Ground(displayWidth,displayHeight*7/8,displayWidth*2,displayHeight/38);
     groundSprite = createSprite(ground.body.position.x,ground.body.position.y,ground.width,ground.height);
     groundSprite.visible = false;
             
+    allPlatformsMade = false;
+
+    storyTime = new StoryTime();
+
     //running the engine
     Engine.run(engine);
 }
@@ -78,12 +81,92 @@ function draw(){
         buttons.start();
     }    
 
+    if(gameState === "storyTimeScreen1")
+    {
+        background("white");
+
+        buttons.hide();
+
+        storyTime.displayScreen1();
+        storyTime.displayButton();
+
+        storyTime.nextButton.mousePressed(()=>
+        {
+            gameState = "storyTimeScreen2";
+        })
+    }
+
+    if(gameState === "storyTimeScreen2")
+    {
+        background("white");
+
+        storyTime.displayScreen2();
+        storyTime.displayButton();
+
+        storyTime.nextButton.mousePressed(()=>
+        {
+            gameState = "storyTimeScreen3";
+        })
+    }
+
+    if(gameState === "storyTimeScreen3")
+    {
+        background("white");
+
+        storyTime.displayScreen3();
+        storyTime.displayButton();
+
+        storyTime.nextButton.mousePressed(()=>
+        {
+            gameState = "storyTimeScreen4";
+        })
+    }
+
+    if(gameState === "storyTimeScreen4")
+    {
+        background("white");
+
+        storyTime.displayScreen4();
+        storyTime.displayButton();
+
+        storyTime.nextButton.mousePressed(()=>
+        {
+            gameState = "storyTimeScreen5";
+        })
+    }
+
+    if(gameState === "storyTimeScreen5")
+    {
+        background("white");
+
+        storyTime.displayScreen5();
+        storyTime.displayButton();
+
+        storyTime.nextButton.mousePressed(()=>
+        {
+            gameState = "storyTimeScreen6";
+        })
+    }
+
+    if(gameState === "storyTimeScreen6")
+    {
+        background("white");
+
+        storyTime.displayScreen6();
+        storyTime.displayButton();
+
+        storyTime.nextButton.mousePressed(()=>
+        {
+            gameState = "forestOfFog";
+        })
+    }
+
     //following commands to be executed if game state is forestOfFog
     if(gameState === "forestOfFog")
     {
         background("white");
 
-        buttons.hide();
+        storyTime.hide();
 
         if(!init)
         {
@@ -94,17 +177,28 @@ function draw(){
         backgroundSprite.addImage("ForestOfFog",forestOfFog);
         backgroundSprite.visible = true;
 
-        regularPlatSprite.visible = true;
         playerSprite.visible = true;
         groundSprite.visible = true;
 
         playerSprite.x = player.body.position.x;
         playerSprite.y = player.body.position.y;
 
-        if(keyWentDown(RIGHT_ARROW))
-        {
-            
-        }
+        player.move();
+
+        // for(var posY = displayHeight*2/3; posY>-3*displayHeight; posY-=displayHeight/11)
+        // {
+        // }
+
+        // for(var posX = displayWidth/10; posX<displayWidth*2; posX+=displayWidth/11)
+        // {
+        //     var posY = displayHeight*2/3;
+        //     if(posY>-3*displayHeight)
+        //     {
+        //         posY=posY-displayHeight/11;
+        //     }
+        //     var platform = new Platform(posX,posY,100,10);
+        //     var platformSprite = createSprite(platform.body.position.x,platform.body.position.y,platform.width,platform.height);
+        // }
     }
 
     //making sprites visible

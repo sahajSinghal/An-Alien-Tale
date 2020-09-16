@@ -27,7 +27,7 @@ class startScreenButtons
 
         //if the new game button is pressed and setting game state to "forestOfFog"
         this.newGameButton.mousePressed(()=>{            
-            gameState = "forestOfFog";
+            gameState = "storyTimeScreen1";
         })
     }
 }

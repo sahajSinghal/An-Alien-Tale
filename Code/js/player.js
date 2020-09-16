@@ -20,4 +20,17 @@ class Player
         //adding the player to the world
         World.add(world,this.body);
     }
+
+    move()
+    {
+        if(keyCode === 39)
+        {
+            Matter.body.applyForce(this.body,{x:40,y:-30});
+        }
+
+        if(keyCode === 37)
+        {
+            Matter.body.applyForce(this.body,{x:-40,y:-30});
+        }
+    }
 };
