@@ -1,5 +1,7 @@
+//the storyTime class
 class StoryTime
 {
+    //constructor
     constructor()
     {
         this.screen1 = createElement('h1');
@@ -11,12 +13,14 @@ class StoryTime
         this.nextButton = createButton('Next');
     }
 
+    //function hide
     hide()
     {
         this.nextButton.hide();
         this.screen6.hide();
     }
 
+    //displaying the elements and buttons
     displayButton()
     {
         this.nextButton.position(displayWidth/2,displayHeight*5/6);

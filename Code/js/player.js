@@ -21,6 +21,7 @@ class Player
         World.add(world,this.body);
     }
 
+    //making move method for player
     move()
     {
         if(keyCode === 39)
