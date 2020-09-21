@@ -64,10 +64,10 @@ function setup(){
 function preload()
 {
     //loading the startImage
-    startPage = loadImage("../Images/CoverPage.png");
+    startPage = loadImage("Images/CoverPage.png");
 
     //loading the forest of fog image
-    forestOfFog = loadImage("../Images/forest of fog.png");
+    forestOfFog = loadImage("Images/forest of fog.png");
 }
 
 //function draw
